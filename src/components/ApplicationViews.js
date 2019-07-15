@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import CandyList from "./candy/CandyList";
 import LocationList from "./location/LocationList";
 import EmployeeList from "./employee/EmployeeList";
+import ApiManager from "../modules/ApiManager"
 
 export default class ApplicationViews extends Component {
   state = {
@@ -30,8 +31,15 @@ export default class ApplicationViews extends Component {
     .then(() => this.setState(newState))
   }
 
+  deleteFunc = (entity, id) => {
+    ApiManager.delete(entity, id)
+    .then(candies =>this.setState({
+        candies: candies
+    })
+  )
+}
 
-  render() {
+render() {
     return (
       <React.Fragment>
         <Route
@@ -44,7 +52,7 @@ export default class ApplicationViews extends Component {
         <Route
           path="/candies"
           render={props => {
-            return <CandyList candies={this.state.candies} candyTypes={this.state.candyTypes}/>;
+            return <CandyList deleteFunc={this.deleteFunc} candies={this.state.candies} candyTypes={this.state.candyTypes}/>;
           }}
         />
         <Route
