@@ -1,0 +1,86 @@
+{
+    "locations": [
+        {
+            "id": 1,
+            "address": "123 Maple Way"
+        },
+        {
+            "id": 2,
+            "address": "543 Main St"
+        },
+        {
+            "id": 3,
+            "address": "983 What Is Up"
+        }
+      ],
+
+      "employees": [
+        {
+            "id": 1,
+            "name": "Jessica Younker"
+        },
+        {
+            "id": 2,
+            "name": "Jordan Nelson"
+        },
+        {
+            "id": 3,
+            "name": "Zoe LeBlanc"
+        },
+        {
+            "id": 4,
+            "name": "Blaise Roberts"
+        }
+      ],
+
+      "candyTypes": [
+        {
+            "id": 1,
+            "type": "gum balls"
+        },
+        {
+            "id": 2,
+            "type": "gummies"
+        },
+        {
+            "id": 3,
+            "type": "chocolate"
+        },
+        {
+            "id": 4,
+            "type": "lolli pop"
+        },
+        {
+            "id": 5,
+            "type": "taffy"
+        }
+      ],
+
+      "candies": [
+        {
+            "id": 1,
+            "name": "Tom's Gumballs",
+            "candyTypeId": 1
+        },
+        {
+            "id": 2,
+            "name": "Yummy Gummies",
+            "candyTypeId": 2
+        },
+        {
+            "id": 3,
+            "name": "Stephen's Chocolate Bar",
+            "candyTypeId": 3
+        },
+        {
+            "id": 4,
+            "name": "Lil Wayne's lolli pop",
+            "candyTypeId": 4
+        },
+        {
+            "id": 5,
+             "name": "Laffy Taffy",
+             "candyTypeId": 5
+            }
+      ]
+}

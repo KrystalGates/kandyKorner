@@ -5,41 +5,31 @@ import LocationList from "./location/LocationList";
 import EmployeeList from "./employee/EmployeeList";
 
 export default class ApplicationViews extends Component {
-  storeLocationsFromApi = [
-    { id: 1, address: "123 Maple Way" },
-    { id: 2, address: "543 Main St" },
-    { id: 3, address: "983 What Is Up" }
-  ];
-
-  employeesFromApi = [
-    { id: 1, name: "Jessica Younker" },
-    { id: 2, name: "Jordan Nelson" },
-    { id: 3, name: "Zoe LeBlanc" },
-    { id: 4, name: "Blaise Roberts" }
-  ];
-
-  candyTypesFromApi = [
-    { id: 1, type: "gum balls" },
-    { id: 2, type: "gummies" },
-    { id: 3, type: "chocolate" },
-    { id: 4, type: "lolli pop" },
-    { id: 5, type: "taffy" }
-  ];
-
-  individualCandiesFromApi = [
-    { id: 1, name: "Tom's Gumballs", candyTypeId: 1},
-    { id: 2, name: "Yummy Gummies", candyTypeId: 2 },
-    { id: 3, name: "Stephen's Chocolate Bar", candyTypeId: 3 },
-    { id: 4, name: "Lil Wayne's lolli pop", candyTypeId: 4 },
-    { id: 5, name: "Laffy Taffy", candyTypeId: 5 }
-  ];
-
   state = {
-    locations: this.storeLocationsFromApi,
-    employees: this.employeesFromApi,
-    candyTypes: this.candyTypesFromApi,
-    candies: this.individualCandiesFromApi
-  };
+    locations: [],
+    employees: [],
+    candyTypes: [],
+    candies: []
+  }
+
+  componentDidMount() {
+    const newState = {}
+
+    fetch("http://localhost:5002/locations")
+    .then(r => r.json())
+    .then(locations => newState.locations = locations)
+    .then(() => fetch("http://localhost:5002/employees")
+    .then(r => r.json()))
+    .then(employees => newState.employees = employees)
+    .then(() => fetch("http://localhost:5002/candyTypes")
+    .then(r => r.json()))
+    .then(candyTypes => newState.candyTypes = candyTypes)
+    .then(() => fetch("http://localhost:5002/candies")
+    .then(r => r.json()))
+    .then(candies => newState.candies = candies)
+    .then(() => this.setState(newState))
+  }
+
 
   render() {
     return (
