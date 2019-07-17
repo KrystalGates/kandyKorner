@@ -31,7 +31,7 @@ export default class ApplicationViews extends Component {
     .then(() => this.setState(newState))
   }
 
-  deleteFunc = (entity, id) => {
+  deleteCandies = (entity, id) => {
     ApiManager.delete(entity, id)
     .then(candies =>this.setState({
         candies: candies
@@ -52,7 +52,7 @@ render() {
         <Route
           path="/candies"
           render={props => {
-            return <CandyList deleteFunc={this.deleteFunc} candies={this.state.candies} candyTypes={this.state.candyTypes}/>;
+            return <CandyList deleteCandies={this.deleteCandies} candies={this.state.candies} candyTypes={this.state.candyTypes}/>;
           }}
         />
         <Route

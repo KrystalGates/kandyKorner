@@ -14,7 +14,7 @@ export default class CandyList extends Component {
             }
             <div>
             <button
-              onClick={() => this.props.deleteFunc("candies", candy.id)}
+              onClick={() => this.props.deleteCandies("candies", candy.id)}
               className="card-link"
             >
               Delete
